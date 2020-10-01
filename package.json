@@ -10,12 +10,17 @@
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
     "@babel/runtime": "^7.8.4",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",
-    "apollo-link-ddp": "^3.0.0",
+    "apollo-link-error": "^1.1.13",
+    "apollo-link-http": "^1.5.17",
+    "apollo-server-express": "^2.18.1",
     "graphql": "^15.3.0",
+    "graphql-type-datetime": "^0.2.4",
+    "lodash": "^4.17.20",
     "meteor-node-stubs": "^1.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"

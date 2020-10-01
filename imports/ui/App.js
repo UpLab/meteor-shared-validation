@@ -1,13 +1,12 @@
 import React from 'react';
-import Hello from './Hello';
-import Info from './Info';
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from '/imports/apollo/client';
+import Home from './pages/Home';
 
 export default function App() {
   return (
-    <div>
-      <h1>Welcome to Meteor!</h1>
-      <Hello />
-      <Info />
-    </div>
+    <ApolloProvider client={ApolloClient}>
+      <Home />
+    </ApolloProvider>
   );
 }
