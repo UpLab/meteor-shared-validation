@@ -1,19 +1,21 @@
-import assert from "assert";
+/* eslint-env mocha */
+import { Meteor } from 'meteor/meteor';
+import assert from 'assert';
 
-describe("meteor-shared-validation", function () {
-  it("package.json has correct name", async function () {
-    const { name } = await import("../package.json");
-    assert.strictEqual(name, "meteor-shared-validation");
+describe('meteor-shared-validation', function () {
+  it('package.json has correct name', async function () {
+    const { name } = await import('../package.json');
+    assert.strictEqual(name, 'meteor-shared-validation');
   });
 
   if (Meteor.isClient) {
-    it("client is not server", function () {
+    it('client is not server', function () {
       assert.strictEqual(Meteor.isServer, false);
     });
   }
 
   if (Meteor.isServer) {
-    it("server is not client", function () {
+    it('server is not client', function () {
       assert.strictEqual(Meteor.isClient, false);
     });
   }
