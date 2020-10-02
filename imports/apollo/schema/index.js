@@ -1,6 +1,6 @@
 import { makeExecutableSchema, gql } from 'apollo-server-express';
 import { merge } from 'lodash';
-import { typeDefs as Book, resolvers as userResolvers } from './modules/book';
+import { typeDefs as Book, resolvers as userResolvers } from '/imports/api/books/graphql';
 import { typeDefs as Date, resolvers as dateResolvers } from './scalars/date';
 
 const Common = gql`
