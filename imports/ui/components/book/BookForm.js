@@ -8,12 +8,29 @@ import { createBookSchema } from '/imports/api/books/schema';
 
 export default function BookForm({ onSubmit, title }) {
   const form = useForm({
+    defaultValues: {
+      title: '',
+      author: '',
+    },
     mode: 'onBlur',
     resolver: yupResolver(createBookSchema),
   });
 
+  const { reset } = form;
+  const submit = React.useCallback(
+    async (...args) => {
+      try {
+        await onSubmit(...args);
+        reset();
+      } catch (error) {
+        // noop
+      }
+    },
+    [onSubmit, reset],
+  );
+
   return (
-    <Form onSubmit={form.handleSubmit(onSubmit)}>
+    <Form onSubmit={form.handleSubmit(submit)}>
       <h1>{title}</h1>
       <Errors {...{ errors: form.errors }} />
       <FormInput title="Title" name="title" form={form} />

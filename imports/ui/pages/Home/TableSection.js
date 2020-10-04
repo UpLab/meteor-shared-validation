@@ -37,7 +37,7 @@ export default function TableSection() {
     },
   });
 
-  const onDelete = React.useCallback((book) => deleteMutation({ variables: { _id: book._id } }), []);
+  const onDelete = React.useCallback((book) => deleteMutation({ variables: { _id: book._id } }), [deleteMutation]);
 
   return (
     <div>

@@ -14,13 +14,16 @@ const CREATE_BOOK_MUTATION = gql`
 
 export default function FormSection() {
   const [mutate] = useMutation(CREATE_BOOK_MUTATION);
-  const handleSubmit = React.useCallback(async (formData) => {
-    try {
-      await mutate({ variables: { formData }, refetchQueries: ['books'] });
-    } catch (error) {
-      toast.error(extractGQLErrorMessage(error));
-    }
-  }, []);
+  const handleSubmit = React.useCallback(
+    async (formData) => {
+      try {
+        await mutate({ variables: { formData }, refetchQueries: ['books'] });
+      } catch (error) {
+        toast.error(extractGQLErrorMessage(error));
+      }
+    },
+    [mutate],
+  );
 
   return <BookForm onSubmit={handleSubmit} title="Create a book" />;
 }

@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": ["@meteorjs/eslint-config-meteor", "prettier", "prettier/react"],
+  "extends": ["@meteorjs/eslint-config-meteor", "airbnb/hooks", "prettier", "prettier/react"],
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error"],
