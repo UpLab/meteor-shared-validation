@@ -4,7 +4,13 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
 import FormInput from '/imports/ui/components/form/FormInput';
 import Errors from '/imports/ui/components/form/Errors';
-import { createBookSchema } from '/imports/api/books/schema';
+import { fields } from '/imports/api/books/schema';
+import { pick } from 'lodash';
+import * as yup from 'yup';
+
+export const createBookSchema = yup.object().shape({
+  ...pick(fields, ['title', 'author']),
+});
 
 export default function BookForm({ onSubmit, title }) {
   const form = useForm({
