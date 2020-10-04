@@ -1,5 +1,4 @@
 import React from 'react';
-import BookForm from '/imports/ui/components/book/BookForm';
 import { toast } from 'react-toastify';
 import { useMutation, gql } from '@apollo/react-hooks';
 import { extractGQLErrorMessage } from '/imports/ui/utils/graphql';
@@ -12,9 +11,9 @@ const CREATE_BOOK_MUTATION = gql`
   }
 `;
 
-export default function FormSection() {
+export default function useCreateBookMutation() {
   const [mutate] = useMutation(CREATE_BOOK_MUTATION);
-  const handleSubmit = React.useCallback(
+  const createBook = React.useCallback(
     async (formData) => {
       try {
         await mutate({ variables: { formData }, refetchQueries: ['books'] });
@@ -25,5 +24,5 @@ export default function FormSection() {
     [mutate],
   );
 
-  return <BookForm onSubmit={handleSubmit} title="Create a book" />;
+  return createBook;
 }
